@@ -115,6 +115,7 @@ const fetchSingleItemData = (name) => {
 
 shieldsButton.addEventListener('click', e => {
   updateCardList(e.target.dataset.type);
+  
 });
 
 weaponsButton.addEventListener('click', e => {
@@ -123,7 +124,6 @@ weaponsButton.addEventListener('click', e => {
 
 armorsButton.addEventListener('click', e => {
   updateCardList(e.target.dataset.type);
-  
 });
 
 npcsButton.addEventListener('click', e => {
