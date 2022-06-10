@@ -6,28 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-
-    <title>Elden Ring Companion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+    
+    <title>Elden Ring Armory</title>
 </head>
 <body>
-    <h1>Elden Ring Companion</h1>
+    <audio hidden controls autoplay>
+        <source src="music/Elden Ring - Main Theme (OST _ Official Soundtrack Music) FULL VERSION (128 kbps).mp3" type="audio/mpeg">
+      </audio>
+      
+    <video id="background-video" autoplay loop muted poster="">
+        <source src="video/BGVEldenRing.mp4" type="video/mp4">
+    </video>
+        
+    
+    <div id="eldenheader" class= "card">
+    <h1> Welcome to the Armory</h1>
+    <h2>Click on either option below to see every piece of weaponry, armor, and shield worth obtaining</h2>
+    </div>
+    
     <div class="container">
         <div class="button-wrapper">
-            <button id="weaponsButton" data-type="weapons">Weapons</button>
-            <button id="shieldsButton" data-type="shields">Shields</button>
-            <button id="armorsButton" data-type="armors">Armors</button>
-            <button id="npcsButton" data-type="npcs">NPCs</button>
-            <button id="locationsButton" data-type="locations">Locations</button>
-            <button id="ashesOfWarButton" data-type="ashes">Ashes of War</button>
+            
+            <button id="weaponsButton"  data-type="weapons" class="button"> Weapons</button>
+            <button id="shieldsButton"  data-type="shields" class="button">Shields</button>
+            <button id="armorsButton"  data-type="armors" class="button">Armors</button>
+        
         </div>
-        <div class="sort-button-wrapper">
+        <!--<div class="sort-button-wrapper">
             <button id="alphabetical">Alphabetical</button>
             <button id="requiredStrength">Required Strength</button>
-        </div>
-        <div class="searchbar">
+        </div>-->
+        <!--<div class="searchbar">
             <input type="text" name="searchbar" id="searchbar">
-        </div>
-        <div class="card-list"></div>
+        </div>-->
+        <div class="card-list" style="font-family: Cinzel, serif;"></div>
     </div>
 </body>
 </html>

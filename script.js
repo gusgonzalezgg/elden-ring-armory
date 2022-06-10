@@ -27,12 +27,15 @@ async function requestAllData(dataType) {
       if (data.data.length !== 0) {
         receivedData.push(...data.data);
       }
+      
     })
+    
   }
   // Exclude armor items that have '(altered)' in the name
   receivedData = receivedData.filter(data => !data.name.includes('(altered)'));
   cardList.innerHTML = "";
   receivedData.forEach(data => createCardList(data));
+  
 }
 
 // Update receivedData array when item type buttons are clicked.
@@ -40,8 +43,9 @@ const updateCardList = (dataType) => {
   cardList.innerHTML = "";
   currentDataType = dataType;
   requestAllData(dataType);
-}
 
+  
+}
 const sortAlphabeticallyByName = (a, b) => {
   if (a.name < b.name) {
     return -1;
@@ -51,6 +55,8 @@ const sortAlphabeticallyByName = (a, b) => {
   }
   return 0;
 }
+
+
 
 const sortByRequiredStrength = (a, b) => {
   if (a.requiredAttributes[0].amount < b.requiredAttributes[0].amount) {
@@ -117,6 +123,7 @@ weaponsButton.addEventListener('click', e => {
 
 armorsButton.addEventListener('click', e => {
   updateCardList(e.target.dataset.type);
+  
 });
 
 npcsButton.addEventListener('click', e => {

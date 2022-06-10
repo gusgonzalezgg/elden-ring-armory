@@ -1,11 +1,70 @@
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+@media (max-width: 750px) {
+  #background-video { display: none; }
+  body {
+    background: url("https://assets.codepen.io/6093409/river.jpg") no-repeat;
+    background-size: cover;
+  }
+}
+
+#eldenheader {
+margin: auto;
+width: 550px;
+font-family: 'Cinzel', serif;
+background-color: none;
+
+
+}
+
 h1 {
+  
+  color: antiquewhite;
+  font-weight: boldest;
+  font-family: 'Cinzel', serif;
+  text-decoration: underline 1.55px
+  
+}
+h2{
+  font-size: 15px;
+  font-weight: lighter;
+  color: antiquewhite;
   text-align: center;
 }
+
+
+
 
 .container {
   padding: 30px;
   max-width: 1000px;
   margin: 0 auto;
+  
+}
+.button {
+  background-color: rgba(0, 0, 0, 0.12);
+  font-family: 'Cinzel', serif;
+  border-radius: 10%;
+  border: none;
+  color: antiquewhite;
+  padding: 1px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 .button-wrapper {
@@ -13,6 +72,7 @@ h1 {
   justify-content: center;
   gap: 30px;
   margin: 20px auto;
+  
 }
 
 .sort-button-wrapper {
@@ -46,8 +106,9 @@ input[type="text"] {
 }
 
 .card {
-  border: 1px solid black;
-  border-radius: 5px;
+  color: antiquewhite;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 40px;
   padding: 10px;
   width: 150px;
   display: flex;
