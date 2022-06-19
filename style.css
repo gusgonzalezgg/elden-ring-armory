@@ -28,11 +28,30 @@ font-family: 'Cinzel', serif;
 background-color: none;
 }
 
+#audioplayer{
+  background-color: rgba(0, 0, 0, 0.12);
+  font-family: 'Cinzel', serif;
+  border-radius: 10%;
+  border: none;
+  color: antiquewhite;
+  padding: 1px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.EldenAudio {
+  align-items: center;
+  display: flex;
+ 
+}
+
 
 
 
 .eldensong {
-
+  display: none;
   margin-top: 15px;
   display: flex;
   justify-content: center;
@@ -76,6 +95,7 @@ h2{
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  margin: auto;
 }
 .button:hover {
   transform: scale(1.1);

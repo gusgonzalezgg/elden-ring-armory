@@ -15,6 +15,8 @@ let currentDataType;
 let singleData;
 let activePageNumber;
 
+
+
 async function requestAllData(dataType) {
   receivedData = [];
   for (let i = 1; i < 20; i ++) {
@@ -30,23 +32,25 @@ async function requestAllData(dataType) {
       
     })
     
-  }
+  } 
   // Exclude armor items that have '(altered)' in the name
   receivedData = receivedData.filter(data => !data.name.includes('(altered)'));
   cardList.innerHTML = "";
+  
   receivedData.forEach(data => createCardList(data));
   
 }
+
+
 
 // Update receivedData array when item type buttons are clicked.
 const updateCardList = (dataType) => {
   cardList.innerHTML = "";
   currentDataType = dataType;
-  requestAllData(dataType);
-
-  
+  requestAllData(dataType);  
 }
-const sortAlphabeticallyByName = (a, b) => {
+
+function sortAlphabeticallyByName(a, b) {
   if (a.name < b.name) {
     return -1;
   }
@@ -86,6 +90,8 @@ const filterContent = (e) => {
   filteredData.forEach(data => createCardList(data));
 }
 
+
+
 const createCardList = (data) => {
   let card = document.createElement('div');
   let title = document.createElement('p');
@@ -99,8 +105,12 @@ const createCardList = (data) => {
   card.appendChild(img);
   card.appendChild(title);
   card.addEventListener('click', e => {
-    fetchSingleItemData(String(e.target.id));
-  })
+    fetchSingleItemData(String(e.target.id)) 
+    window.open(
+      'https://eldenring.wiki.fextralife.com/' + encodeURIComponent(e.target.id),
+      '_blank'
+    );
+  });
   document.querySelector('.card-list').appendChild(card);
 }
 
@@ -111,46 +121,53 @@ const fetchSingleItemData = (name) => {
     .then(res => res.json())
     .then(data => singleData = data.data)
     .then(err => console.log(err))
+
+  
 }
+
 
 shieldsButton.addEventListener('click', e => {
   updateCardList(e.target.dataset.type);
   
+  
 });
 
 weaponsButton.addEventListener('click', e => {
+  
   updateCardList(e.target.dataset.type);
+  
+  
 });
 
 armorsButton.addEventListener('click', e => {
   updateCardList(e.target.dataset.type);
 });
 
-npcsButton.addEventListener('click', e => {
-  updateCardList(e.target.dataset.type);
-});
+// npcsButton.addEventListener('click', e => {
+//   updateCardList(e.target.dataset.type);
+// });
 
-locationsButton.addEventListener('click', e => {
-  updateCardList(e.target.dataset.type);
-});
+// locationsButton.addEventListener('click', e => {
+//   updateCardList(e.target.dataset.type);
+// });
 
-ashesOfWarButton.addEventListener('click', e => {
-  updateCardList(e.target.dataset.type);
-});
+// ashesOfWarButton.addEventListener('click', e => {
+//   updateCardList(e.target.dataset.type);
+// });
 
-alphabeticalSortButton.addEventListener('click', () => {
-  cardList.innerHTML = "";
-  let sortedData = receivedData.sort(sortAlphabeticallyByName);
-  sortedData.forEach(data => createCardList(data));
-})
+// alphabeticalSortButton.addEventListener('click', () => {
+//   cardList.innerHTML = "";
+//   let sortedData = receivedData.sort(sortAlphabeticallyByName);
+//   sortedData.forEach(data => createCardList(data));
+// })
 
-strengthSortButton.addEventListener('click', () => {
-  cardList.innerHTML = "";
-  let sortedData = receivedData.sort(sortByRequiredStrength);
-  sortedData.forEach(data => createCardList(data));
-})
+// strengthSortButton.addEventListener('click', () => {
+//   cardList.innerHTML = "";
+//   let sortedData = receivedData.sort(sortByRequiredStrength);
+//   sortedData.forEach(data => createCardList(data));
+// })
 
-searchBar.addEventListener('input', filterContent);
+// searchBar.addEventListener('input', filterContent);
 
 
 
